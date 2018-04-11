@@ -22,7 +22,7 @@ class Post < ApplicationRecord
   end
 
   def send_to_slack
-    if ENV['SLACK_WEBHOOK_URL']
+    if Rails.application.secrets[:slack_active]
       slack_attachment = {
         fallback: 'A new conversation was started in the Member Portal',
         color: '#36a64f',
@@ -39,7 +39,7 @@ class Post < ApplicationRecord
         ts: created_at.to_i
       }
 
-      notifier = Slack::Notifier.new ENV['SLACK_WEBHOOK_URL']
+      notifier = Slack::Notifier.new Rails.application.secrets[:slack_webhook_url]
       notifier.ping attachments: [slack_attachment]
     end
   end
