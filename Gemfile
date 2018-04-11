@@ -18,6 +18,7 @@ gem 'puma', '~> 3.11.3'
 gem 'rails', '~> 5.1.6'
 gem 'sass-rails', '~> 5.0.7'
 gem 'selectize-rails', '~> 0.12.4.1'
+gem 'slack-notifier', '~> 1.5'
 gem 'turbolinks', '~> 5.1.1'
 gem 'uglifier', '~> 4.1.8'
 
